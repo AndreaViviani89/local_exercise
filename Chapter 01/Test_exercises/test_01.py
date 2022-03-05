@@ -14,6 +14,7 @@ nums = nums.reshape( (10,10) )
 print(nums)
 
 
+
 a = np.array([1,2,3])
 print(a)
 print(a.shape)
