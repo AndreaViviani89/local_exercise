@@ -1,4 +1,7 @@
 import pandas as pd
+import numpy as np
+
+
 
 '''
 pa = pd.Series([4, 6, -5, 3], index=["x1", "x2", "x3", "x4"])

@@ -15,20 +15,21 @@ i. e. strive_school([1, 2, 3, 5, 15]) outputs [1, 2, Strive, School, Strive Scho
 
 
 def strive_school(list_of_numbers):
-    x = 1
+    list_empty = []
     for x in list_of_numbers:
         if x % 3 == 0:
-            print("Strive")
+            list_empty.append("Strive")
         elif x % 5 == 0:
-            print("School")
+            list_empty.append("School")
         elif x % 3 == 0 and x % 5 == 0:
-            print("Strive School")
+            list_empty.append("Strive School")
         else:
-            print(x)
-    return list_of_numbers
+            list_empty.append(x)
+    return list_empty
+
 
 list_of_numers = [1, 3, 5, 15, 7, 34, 55, 66, 90]
-
+list_of_numers.append(300)
 print(strive_school(list_of_numers))
 
 
