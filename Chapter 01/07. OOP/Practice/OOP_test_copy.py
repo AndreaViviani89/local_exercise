@@ -1,4 +1,5 @@
 from collections import Counter
+from itertools import product
 
 
 def print_hi(name):
@@ -9,14 +10,11 @@ if __name__ == '__main__': # __aaa__ private code
 
 
 # ESEMPIO SU ABSTACTION
-class Book:
+class Book(product):
     def __init__(self, name, publisher, isbn, selling_price=0): #"self" refering an instance of the class --> CONSTRUCTOR
-        self.name = name
+        super().__init__(name, selling_price)
         self.publisher = publisher
         self.isbn = isbn
-        self.__ratings_stars = []
-
-        self.__selling_price = 0
 
         if selling_price > 0:
             self.__selling_price = selling_price
@@ -32,19 +30,6 @@ class Book:
         if price <= 0:
             raise ValueError("The price must be greater than 0, we don't give away books in this shop")
         self.__selling_price = price 
-
-
-    def add_rating(self, stars):
-        self.__ratings_stars.apppend(stars)
-
-    def get_ratings_average(self):
-        return sum(self.__ratings.stars) / len(self.__ratings_stars)
-
-    def get_total_ratings(self):
-        return len(self.__ratings_stars)
-
-    def get_stars_count(self):
-        return dict(Counter(self.__ratings_stars))
 
     def __str__(self):
         return f'Book name:{self.name}\nBook Pubblisher: {self.publisher}\nBook ISBN: {self.isbn}\nBook Price: {self.selling_price}'
