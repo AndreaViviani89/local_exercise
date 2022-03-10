@@ -1,11 +1,11 @@
 '''
 
 from unicodedata import name
-from models.product import Product
+from Practice.product import Product
 
 
 class Magazine(Product):
-    def __init__(self, name, selling prince = 0)
+    def __init__(self, name, selling_prince = 0):
         super().__init__(name, selling_price)
         if selling_price >= 0:
             self.__selling_price = selling_price

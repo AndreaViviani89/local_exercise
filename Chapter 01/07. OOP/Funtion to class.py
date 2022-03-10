@@ -5,6 +5,7 @@ class Pyramid_Challenge():
         self.num = num #declare self.num
 
     def pyramid_challenge(self):
+        """ Creates the pyramid from left to right. """
         self.number = self.num
         val1 = "#"
     
