@@ -5,6 +5,7 @@
 
 
 
+
 def pyramid_challenge(num):
 
     val1 = "#"
@@ -35,4 +36,6 @@ for i in range(rows):
     for a in range(i+1):
         print(a+1, end=" ")
     print("\n")
+
+
 
