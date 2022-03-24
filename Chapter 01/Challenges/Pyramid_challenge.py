@@ -28,7 +28,7 @@ for i in range(rows):
 #I've discovered that I need to print \n for a new line
 
 
-#Here I tried to create an input() function but without int() it returns an error
+#Here I tried to create an input() function 
 
 rows = int(input("Enter the number of rows: "))
 
@@ -38,4 +38,6 @@ for i in range(1, len(rows)):
     print("\n")
 
 
+Result = [f
+    for i in range(1, len(rows))]
 
