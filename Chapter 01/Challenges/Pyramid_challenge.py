@@ -32,7 +32,7 @@ for i in range(rows):
 
 rows = int(input("Enter the number of rows: "))
 
-for i in range(rows):
+for i in range(1, len(rows)):
     for a in range(i+1):
         print(a+1, end=" ")
     print("\n")
