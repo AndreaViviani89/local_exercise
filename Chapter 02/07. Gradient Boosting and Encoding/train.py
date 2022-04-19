@@ -9,15 +9,32 @@ def train_model():
 
     x_train, x_test, y_train, y_test = dh.get_data("C:/Users/andre/Documents/Strive_repository/local_exercise/Chapter 02/07. Gradient Boosting and Encoding/insurance.csv")
 
-    xgb_r = XGBRegressor()
-    gboosting_r = GradientBoostingRegressor(learning_rate=0.01, n_estimators=50)
-    rf = RandomForestRegressor(n_estimators= 50, random_state=0)
+    # As a good practice check all the shape
+    print(x_train.shape)
+    print(x_test.shape)
+    print(y_test.shape)
+    print(y_train.shape)
 
-    xgb_r.fit(x_train,y_train)
-    gboosting_r.fit(x_train, y_train)
+    #Instantiate the XGB Regressor
+    xgb_reg = XGBRegressor()
+    xgb_reg.fit(x_train,y_train)
+
+    # Instantiate the Gradient Boosting Regressor
+    grad_boosting_reg = GradientBoostingRegressor(learning_rate=0.01, n_estimators=50)
+    grad_boosting_reg.fit(x_train, y_train)
+
+    # Instantiate the random forest model
+    rf = RandomForestRegressor(n_estimators= 50, random_state=0)
     rf.fit(x_train, y_train)
 
-    return xgb_r, gboosting_r, rf
+    # Instantiate the AdaBoost
+    ada = AdaBoostRegressor(random_state=0, n_estimators=100) # by default is set on 50, I tried with 100 of estimators
+    ada.fit(x_train, y_train)
+
+    
+
+
+    return xgb_reg, grad_boosting_reg, rf, ada
 
 train_model()
 
