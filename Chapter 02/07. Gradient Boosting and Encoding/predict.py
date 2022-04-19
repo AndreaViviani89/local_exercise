@@ -20,11 +20,9 @@ while True:
 
     # Preprocess
 
-    # ct = model[-2]
-    # scaler = model[-1]
+
     x = pd.DataFrame({"age":age, "sex":sex, "bmi":bmi, "child":child, "smoke":smoke," region":region}, index=[0])
-    x_trans = ct.transform(x)
-    x_scaled = scaler.transform(x_trans)
+
 
 
     # Predict
