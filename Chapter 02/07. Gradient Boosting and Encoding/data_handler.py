@@ -23,8 +23,9 @@ def get_data(pth):
     x_train = ct.fit_transform(x_train)
     x_test = ct.transform(x_test)
 
-    # scaler = StandardScaler()
-    # x_train_scaled = scaler.fit_transform(x_train)
-    # x_test_scaled = scaler.fit_transform(x_test)
+    # Scaled the data
+    scaler = StandardScaler()
+    x_train_scaled = scaler.fit_transform(x_train)
+    x_test_scaled = scaler.fit_transform(x_test)
 
-    return x_train, x_test, y_train, y_test
+    return x_train_scaled, x_test_scaled, y_train, y_test

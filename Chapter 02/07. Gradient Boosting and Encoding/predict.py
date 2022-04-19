@@ -27,7 +27,7 @@ while True:
 
     # Predict
 
-    predictions = np.array([clf.predict(x_scaled) for clf in model[:-2]])
+   
     
 
     print(f"Prediction for your conditions: {predictions.mean()}")
