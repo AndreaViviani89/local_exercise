@@ -6,8 +6,9 @@ from sklearn.preprocessing import OrdinalEncoder, StandardScaler
 
 model = tr.train_model()
 
-# ct = model[0]
-# print(ct)
+# print(type(model))
+ct = model[0]
+print(ct)
 
 while True:
 
@@ -33,20 +34,24 @@ while True:
     # Preprocess
 
     gbr = model[1] # the [1] refers to Gradient Boosting Regressor in the train file
-    scaler = StandardScaler()
 
-    ct = ColumnTransformer( [('ordinal', OrdinalEncoder(handle_unknown= 'use_encoded_value', unknown_value = -1), [1,4,5] )] )
+    ct = model[-2] # ColumnTransformer --> applies transformers to columns of an array or pandas DataFrame.
+    scaler = model[-1] # StandardScaler
+
     x = pd.DataFrame({"age":age, "sex":sex, "bmi":bmi, "child":child, "smoke":smoke," region":region}, index=[0])
+    
     x_trans = ct.transform(x)
+
     x_scaled = scaler.transform(x_trans)
 
     # Predict
 
-    prediction = (clf.predict(x_scaled) for clf in model[:-2])
+ 
 
+    pred = np.array(gbr.predict(x_scaled))
 
    
     
 
-    print(f"Prediction for your conditions: {prediction.mean()}")
+    print(pred.mean())
 

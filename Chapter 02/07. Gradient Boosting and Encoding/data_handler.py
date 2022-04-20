@@ -18,7 +18,7 @@ def get_data(pth):
     This is useful for heterogeneous or columnar data, to combine several feature extraction mechanisms or transformations into a single transformer.'''
     
     # Applies transformers to columns of an array or pandas DataFrame.
-    ct = ColumnTransformer( [('ordinal', OrdinalEncoder(handle_unknown= 'use_encoded_value', unknown_value = -1), [1,4,5] )] )
+    ct = ColumnTransformer( [('ordinal', OrdinalEncoder(handle_unknown= 'use_encoded_value', unknown_value = -1), [1,4,5] )] ) # tuple
 
     x_train = ct.fit_transform(x_train)
     x_test = ct.transform(x_test)
@@ -28,4 +28,4 @@ def get_data(pth):
     x_train_scaled = scaler.fit_transform(x_train)
     x_test_scaled = scaler.fit_transform(x_test)
 
-    return x_train_scaled, x_test_scaled, y_train, y_test
+    return x_train_scaled, x_test_scaled, y_train, y_test, ct, scaler

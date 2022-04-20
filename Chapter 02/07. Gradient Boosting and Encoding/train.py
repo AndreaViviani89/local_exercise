@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
 
 def train_model():
 
-    x_train, x_test, y_train, y_test = dh.get_data("C:/Users/andre/Documents/Strive_repository/local_exercise/Chapter 02/07. Gradient Boosting and Encoding/insurance.csv")
+    x_train, x_test, y_train, y_test, ct, scaler = dh.get_data("C:/Users/andre/Documents/Strive_repository/local_exercise/Chapter 02/07. Gradient Boosting and Encoding/insurance.csv")
 
     # As a good practice check all the shape
     print(x_train.shape)
@@ -31,10 +31,8 @@ def train_model():
     ada = AdaBoostRegressor(random_state=0, n_estimators=100) # by default is set on 50, I tried with 100 of estimators
     ada.fit(x_train, y_train)
 
-    
 
-
-    return xgb_reg, grad_boosting_reg, rf, ada
+    return xgb_reg, grad_boosting_reg, rf, ada, ct, scaler 
 
 train_model()
 
