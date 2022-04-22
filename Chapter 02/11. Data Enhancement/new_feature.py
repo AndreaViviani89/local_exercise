@@ -49,6 +49,8 @@ Metadata
 
 '''
 
+
+"""Load the data"""
 data = pd.read_csv(r'data\london_merged.csv')
 # print(data)
 
@@ -61,6 +63,8 @@ np.random.seed(0)
 # Check the structure of 'timestamp'
 print(data['timestamp'][:5])
 
+
+"""taking the hours, months and years out of timestamp and dropping timestamp column"""
 data['year'] = data['timestamp'].apply(lambda row: row[:4])
 # Check data['year']
 print(data['year'][:5])
@@ -73,3 +77,42 @@ data['hour'] = data['timestamp'].apply(lambda row: row.split(':')[0][-2:])
 # Check data['hour']
 print(data['hour'][:5])
 
+data.drop('timestamp', axis=1, inplace=True)
+# Check the shape
+print(data.shape)
+# print(data[:5]) # check the new data
+
+
+def feature_enhancement(data):
+    
+    df = data   # make a DataFrame copy
+
+    for season in data['season'].unique():
+        seasonal_data = df[df['season'] == season]
+        hum_mean = seasonal_data['hum'].mean()
+        wind_speed_mean = seasonal_data['wind_speed'].mean()
+        t1_mean = seasonal_data['t1'].mean()
+        t2_mean = seasonal_data['t2'].mean()
+
+        for i in df[df['season'] == season].index:
+            if np.random.randint(2) == 1:
+                df['hum'].values[i] += hum_mean/10
+            else:
+                df['hum'].values[i] -= hum_mean/10
+
+            if np.random.randint(2) == 1:
+                df['wind_speed'].values[i] += wind_speed_mean/10
+            else:
+                df['wind_spped'].values[i] -= wind_speed_mean/10
+
+            if np.random.randint(2) == 1:
+                df['t1'].values[i] += t1_mean/10
+            else:
+                df['t1'].values[i] -= t1_mean/10
+
+            if np.random.randint(2) == 1:
+                df['t2'].values[i] += t2_mean/10
+            else:
+                df['t2'].values[i] -= t2_mean/10
+
+    return df
