@@ -69,9 +69,11 @@ data['year'] = data['timestamp'].apply(lambda row: row[:4])
 # Check data['year']
 print(data['year'][:5])
 
-data['month'] = data['timestamp'].apply(lambda row: row.split('-')[2][:2])
+data['month'] = data['timestamp'].apply(lambda row: row.split('-')[2][:2])  # change the value [2][:2] with [1]
 # Check data['month']
 print(data['month'][:5])
+
+# data['day'] = data['timestamp'].apply(lambda row: row.split('-')[2][:2])
 
 data['hour'] = data['timestamp'].apply(lambda row: row.split(':')[0][-2:])
 # Check data['hour']
@@ -95,7 +97,7 @@ def feature_enhancement(data):
         t2_mean = seasonal_data['t2'].mean()
 
         for i in df[df['season'] == season].index:
-            if np.random.randint(2) == 1:
+            if np.random.randint(2) == 1:       # Return random integers from low (inclusive) to high (exclusive).
                 df['hum'].values[i] += hum_mean/10
             else:
                 df['hum'].values[i] -= hum_mean/10
@@ -132,17 +134,20 @@ cat_vars = ['season','is_weekend','is_holiday','year','month','weather_code']   
 num_vars = ['t1','t2','hum','wind_speed']   # Numerical feature
 
 
+# Split the data
 x_train, x_val, y_train, y_val = model_selection.train_test_split(x, y,
                                     test_size=0.2,
                                     random_state=0  # Recommended for reproducibility
                                 )
 
 
-extra_sample = gen.sample(gen.shape[0] // 3)    # I can change with 4 --> 25%
+# Apply the enhancement
+extra_sample = gen.sample(gen.shape[0] // 4)    # I can change with 4 --> 25%
 x_train = pd.concat([x_train, extra_sample.drop(['cnt'], axis=1 ) ])
 y_train = pd.concat([y_train, extra_sample['cnt'] ])
 
 
+# Transform the data
 transformer = preprocessing.PowerTransformer()
 y_train = transformer.fit_transform(y_train.values.reshape(-1,1))
 y_val = transformer.transform(y_val.values.reshape(-1,1))
@@ -152,7 +157,7 @@ rang = abs(y_train.max()) + abs(y_train.min())
 
 
 
-
+# Create a pipeline for numerical and categorical data
 num_4_treeModels = pipeline.Pipeline(steps=[
     ('imputer', impute.SimpleImputer(strategy='constant', fill_value=-9999)),
 ])
