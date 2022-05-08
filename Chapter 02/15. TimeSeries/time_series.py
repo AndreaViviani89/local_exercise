@@ -119,3 +119,20 @@ for model_name, model in model_dict.items():
 
 results_sort = results.sort_values(by=['MSE'], ascending= True, ignore_index= True)
 print(results_sort)
+
+
+
+# plt.figure()
+# plt.plot(np.linspace(1, y_test.shape[0],y_test.shape[0]), y_test, label='real', linewidth=1 )
+# plt.plot(np.linspace(1, y_test.shape[0],y_test.shape[0]), pred, linestyle='dashed', label='prediction',linewidth=0.5 )
+# plt.legend()
+# plt.show()
+
+
+
+
+'''      Model       MSE       MAB  R2 Score         Time
+0  Catboost  0.307944  0.391440  0.994939    12.868042
+1       GMB  0.313973  0.407220  0.994840    32.705123
+2  Adaboost  0.718464  0.656608  0.988192    12.630261
+3       SVR  1.151909  0.829247  0.981069  1140.583319'''
