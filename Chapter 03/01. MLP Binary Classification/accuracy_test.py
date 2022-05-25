@@ -66,10 +66,18 @@ def fit(x_train, x_test, y_train, y_test, model, criterion, lr, num_epo):
             classes = test_preds > 0.5
 
             acc = sum(classes == y_test) / classes.shape[0]
-
-        model.train()
-
-        accuracy.append(acc)
+            accuracy.append(acc)
 
         print(f'Epoch: {epoch + 1} | loss: {loss_value.item()} | test loss: {test_loss.item()} | accuracy: {acc}')
 
+        model.train()
+
+    plt.plot(train_losses, label = 'Train Losses')
+    plt.show()
+    plt.plot(test_losses, label = 'Test Losses')
+    plt.plot(acc, label = 'Accuracy')
+    plt.legend()
+    plt.show()
+
+
+model = fit(x_train, x_test, y_train, y_test, neuralnet, criterion, lr=0.01, num_epo=100)  
