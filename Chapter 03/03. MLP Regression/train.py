@@ -29,8 +29,6 @@ criterion = torch.nn.MSELoss()
 
 epochs = 10
 
-start_time = time.time()
-
 train = []
 test = []
 
