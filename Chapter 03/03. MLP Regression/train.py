@@ -60,8 +60,8 @@ for epoch in range(epochs):
 train_time = time.time() - start_time
 print(f'Training time: {train_time}')
 
-plt.plot(train, label='train Loss')
-plt.plot(test, label='test Loss')
+plt.plot(train, marker='o', label='train Loss')
+plt.plot(test, marker='o', label='test Loss')
 
 plt.legend()
 plt.show()
