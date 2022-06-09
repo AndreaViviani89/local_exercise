@@ -1,2 +1,1 @@
-# KNN-exercise
- KNN lesson
+# Green screen
