@@ -1,0 +1,2 @@
+# KNN-exercise
+ KNN lesson
