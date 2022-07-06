@@ -63,12 +63,15 @@ article{
     margin:1%;
     padding:1%;
     height:auto;
-    color:rgb(50,50,50);	
+    color:rgb(50,50,50);
+    font-family:'Montserrat', sans-serif;
+    font-size: 16px;	
 }
 article h3{
 color:rgb(36, 52, 66);
 font-weight:bold;
-font-family:arial;
+font-family:'Prata', serif;
+font-size: 24px;
 }
 footer{
 background:rgb(200,200,200);
