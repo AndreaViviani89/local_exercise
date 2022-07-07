@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% from "components/card.html" import cards}
+{% block title %}Homepage{% endblock %}
+
+
+{% block content %}
+    <h1>Index</h1>
+    {{card('http://placeholder.it/200x300', 'title', 'description')}}
+    <a href="/about"> go to about page</a>
+{% endblock %}
