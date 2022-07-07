@@ -11786,3 +11786,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 .col-1-3 {
   width: 33.33%;
 }
+.checked {
+  color: orange;
+}
