@@ -1,10 +1,25 @@
 {% extends "base.html" %}
-{% from "components/card.html" import cards}
+{% from "components/card.html" import card %}
 {% block title %}Homepage{% endblock %}
 
 
 {% block content %}
-    <h1>Index</h1>
+    <!-- <h1>Index</h1>
     {{card('http://placeholder.it/200x300', 'title', 'description')}}
-    <a href="/about"> go to about page</a>
+    <a href="/about"> go to about page</a> -->
+
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            {{card("static\\WelcomeSummer-3.jpg", "Lorem ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")}}
+          </div>
+          <div class="col">
+            {{card("static\\WelcomeSummer-3.jpg", "Lorem ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")}}
+          </div>
+          <div class="col">
+            {{card("static\\WelcomeSummer-3.jpg", "Lorem ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")}}
+          </div>
+        </div>
+    </div>
+
 {% endblock %}

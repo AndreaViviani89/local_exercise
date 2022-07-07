@@ -2,7 +2,10 @@
     --background-color: #d7fff1ff;
     --primary-color: #aafcb8ff;
     --secondary-color: #8cd790ff;
-    --text-color: #fff;
+    /* --background-color: #c9e4caff;
+    --secondary-color: #731963ff;
+    --primary-color: #ce6d8bff; */
+    --text-color: rgb(30, 21, 116);
 }
 
 body{
