@@ -2,13 +2,36 @@
 
 -- Question 1
 
-SELECT
-    film.title AS title,
-    film.description AS description,
-    film.release_year AS release_year
-    FROM film
-    JOIN film_category
-        ON film_category.film_id = film.film_id
-    ORDER BY release_year DESC
+-- SELECT
+--     film.title AS title,
+--     film.description AS description,
+--     film.release_year AS release_year,
+--     category.name AS category_name
+--     FROM film
+--     JOIN category
+--         ON category.category_id = film.film_id
+--     ORDER BY release_year DESC
     
 -- Question 2
+
+SELECT
+    customer.customer_id AS customer_id,
+    customer.first_name AS customer_first_name,
+    customer.last_name AS customer_last_name,
+    customer.address_id AS customer_address_id,
+    country.country_id AS country_id,
+    country.country AS country,
+    city.city_id AS city_id,
+    city.city AS city
+    FROM customer
+    JOIN country
+        ON country.country_id = customer_id
+    JOIN address
+        ON address.address_id = customer_id
+    JOIN city
+        ON city.city_id = customer_id
+    ORDER BY customer_first_name ASC
+    
+-- Question 3
+    
+    
