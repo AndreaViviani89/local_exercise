@@ -14,24 +14,56 @@
     
 -- Question 2
 
+-- SELECT
+--     customer.customer_id AS customer_id,
+--     customer.first_name AS customer_first_name,
+--     customer.last_name AS customer_last_name,
+--     customer.address_id AS customer_address_id,
+--     country.country_id AS country_id,
+--     country.country AS country,
+--     city.city_id AS city_id,
+--     city.city AS city
+--     FROM customer
+--     JOIN country
+--         ON country.country_id = customer_id
+--     JOIN address
+--         ON address.address_id = customer_id
+--     JOIN city
+--         ON city.city_id = customer_id
+--     ORDER BY customer_first_name ASC
+    
+-- Question 3
+
 SELECT
+    payment_id,
+    amount,
+    payment_date,
+    staff.first_name AS staff_first_name,
+    staff.last_name AS staff_last_name,
     customer.customer_id AS customer_id,
     customer.first_name AS customer_first_name,
     customer.last_name AS customer_last_name,
-    customer.address_id AS customer_address_id,
-    country.country_id AS country_id,
-    country.country AS country,
-    city.city_id AS city_id,
-    city.city AS city
-    FROM customer
-    JOIN country
-        ON country.country_id = customer_id
-    JOIN address
-        ON address.address_id = customer_id
-    JOIN city
-        ON city.city_id = customer_id
-    ORDER BY customer_first_name ASC
+    customer.email AS customer_email,
+    customer.address_id AS address_id,
+    rental.rental_id AS rental_id,
+    rental.rental_date AS rental_date,
+    rental.return_date AS return_date
+    FROM payment
+    JOIN customer
+        ON customer.customer_id = payment.customer_id
+    JOIN rental
+        ON rental.rental_id = payment.rental_id
+    JOIN staff
+        ON staff.staff_id = payment.staff_id
+    ORDER BY amount DESC
     
--- Question 3
+-- Question 4
+
+SELECT
+        
+
+
+    
+    
     
     
