@@ -1,0 +1,20 @@
+-- Test
+
+SELECT
+    customer.customer_id,
+    customer.first_name AS customer_first_name,
+    customer.last_name AS customer_last_name,
+    staff.first_name AS staff_first_name,
+    staff.last_name AS staff_last_name,
+    payment.amount,
+    payment.payment_date,
+    rental.rental_date,
+    rental.return_date
+    FROM customer
+    JOIN payment
+        ON payment.customer_id = customer.customer_id
+    JOIN staff
+        ON payment.staff_id = staff.staff_id
+    JOIN rental
+        ON payment.rental_id = rental.rental_id
+    ORDER BY payment.payment_date DESC;
