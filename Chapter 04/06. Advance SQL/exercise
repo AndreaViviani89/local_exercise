@@ -59,20 +59,38 @@
     
 -- Question 4
 
-SELECT
-    actor.actor_id AS actor_id,
-    actor.first_name AS actor_first_name,
-    actor.last_name AS actor_last_name,
-    film.title AS title,
-    film.rating AS rating,
-    film.release_year AS release_year
-    FROM actor
-    JOIN film
-        ON film.film_id = actor_id
+-- SELECT
+--     actor.actor_id AS actor_id,
+--     actor.first_name AS actor_first_name,
+--     actor.last_name AS actor_last_name,
+--     film.title AS title,
+--     film.rating AS rating,
+--     film.release_year AS release_year
+--     FROM actor
+--     JOIN film
+--         ON film.film_id = actor_id
         
 -- Question 5
 
+SELECT
+    store.store_id AS store_id,
+    store.manager_staff_id AS manager_staff_id,
+    staff.first_name AS staff_first_name,
+    staff.last_name AS staff_last_name,
+    staff.email AS email,
+    address.address_id AS address_id,
+    address.address AS address,
+    address.district AS district,
+    address.postal_code AS postal_code
+    FROM store
+    INNER JOIN address USING(address_id)
+    JOIN staff
+        ON staff.staff_id = store.store_id
+
+-- Question 6
     
+    
+
     
     
     
