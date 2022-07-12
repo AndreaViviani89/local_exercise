@@ -34,35 +34,47 @@
     
 -- Question 3
 
-SELECT
-    payment_id,
-    amount,
-    payment_date,
-    staff.first_name AS staff_first_name,
-    staff.last_name AS staff_last_name,
-    customer.customer_id AS customer_id,
-    customer.first_name AS customer_first_name,
-    customer.last_name AS customer_last_name,
-    customer.email AS customer_email,
-    customer.address_id AS address_id,
-    rental.rental_id AS rental_id,
-    rental.rental_date AS rental_date,
-    rental.return_date AS return_date
-    FROM payment
-    JOIN customer
-        ON customer.customer_id = payment.customer_id
-    JOIN rental
-        ON rental.rental_id = payment.rental_id
-    JOIN staff
-        ON staff.staff_id = payment.staff_id
-    ORDER BY amount DESC
+-- SELECT
+--     payment_id,
+--     amount,
+--     payment_date,
+--     staff.first_name AS staff_first_name,
+--     staff.last_name AS staff_last_name,
+--     customer.customer_id AS customer_id,
+--     customer.first_name AS customer_first_name,
+--     customer.last_name AS customer_last_name,
+--     customer.email AS customer_email,
+--     customer.address_id AS address_id,
+--     rental.rental_id AS rental_id,
+--     rental.rental_date AS rental_date,
+--     rental.return_date AS return_date
+--     FROM payment
+--     JOIN customer
+--         ON customer.customer_id = payment.customer_id
+--     JOIN rental
+--         ON rental.rental_id = payment.rental_id
+--     JOIN staff
+--         ON staff.staff_id = payment.staff_id
+--     ORDER BY amount DESC
     
 -- Question 4
 
 SELECT
+    actor.actor_id AS actor_id,
+    actor.first_name AS actor_first_name,
+    actor.last_name AS actor_last_name,
+    film.title AS title,
+    film.rating AS rating,
+    film.release_year AS release_year
+    FROM actor
+    JOIN film
+        ON film.film_id = actor_id
         
+-- Question 5
 
-
+    
+    
+    
     
     
     
