@@ -1,0 +1,14 @@
+-- HOMEWORK
+
+-- Question 1
+
+SELECT
+    film.title AS title,
+    film.description AS description,
+    film.release_year AS release_year
+    FROM film
+    JOIN film_category
+        ON film_category.film_id = film.film_id
+    ORDER BY release_year DESC
+    
+-- Question 2
