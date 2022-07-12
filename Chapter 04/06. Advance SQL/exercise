@@ -92,7 +92,16 @@
 SELECT
     staff.first_name AS first_name,
     staff.last_name AS last_name,
-    COUNT (rental_id) AS total_sale,
+    COUNT (payment_id) AS sales,
+    (COUNT (payment_id)-5000) * 0.1 AS bonus
+    FROM
+        payment
+    JOIN staff
+        ON staff.staff_id = payment.staff_id
+    GROUP BY staff.staff_id
+    ORDER BY first_name ASC
+        
+    
     
     
     
