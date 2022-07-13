@@ -66,9 +66,13 @@
 --     film.title AS title,
 --     film.rating AS rating,
 --     film.release_year AS release_year
---     FROM actor
+--     FROM film_actor
+--     JOIN actor
+--         ON actor.actor_id = film_actor.actor_id
 --     JOIN film
---         ON film.film_id = actor_id
+--         ON film.film_id = film_actor.film_id
+--     GROUP BY actor.actor_id, film.film_id
+--     ORDER BY actor_first_name ASC
         
 -- Question 5
 
