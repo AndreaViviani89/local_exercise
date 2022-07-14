@@ -1,17 +1,25 @@
-from flask import Flask
-from flask_restful import Resource, Api
-from routes.home.route import HomeRoute, HomeRouteWithId
-from utils.db import db
-
-
-def create_app():
-    app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] =  "sqlite:///db.sqlite"
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
-    api = Api(app)
-    db.init_app(app)    #initialize the database
-    db.create_all(app=app)      #create tables
-    api.add_resource(HomeRoute, '/')
-    api.add_resource(HomeRouteWithId, '/<string:id>')
-    return app
-    
+from flask import Flask,request,render_template,redirect,make_response,url_for,flash
+ 
+from werkzeug.utils import secure_filename
+ 
+import sqlite3
+ 
+app = Flask(__name__)
+  
+@app.route("/", methods=['POST','GET'])
+def upload():
+    if request.method=="POST":    #need to remove
+        destination_path="static/uploads"
+        fileobj = request.files['file']
+        file_extensions =  ["JPG","JPEG","PNG","GIF"]
+        uploaded_file_extension = fileobj.filename.split(".")[1]
+        
+        if(uploaded_file_extension.upper() in file_extensions):
+            destination_path= f"static/uploads/{fileobj.filename}"
+            fileobj.save(destination_path)
+            return '<h1>Uploaded</h1>'
+        else:
+            flash("only images are accepted")
+    else:     
+        return render_template('home.html') 
+ 
