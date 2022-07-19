@@ -3,7 +3,7 @@ import pickle
 
 
 app = Flask(__name__)
-model = pickle.load(open('model_state.pth'))
+# model = pickle.load(open('model_state.pth'))
 
 @app.route('/', methods=['GET'])
 
