@@ -1,4 +1,3 @@
-from statistics import mode
 from flask import Flask, render_template, request
 import torch
 from torchvision import models, transforms
@@ -57,4 +56,4 @@ def predict():
     return render_template('index.html', prediction = classes[pred])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run('0.0.0.0', port=3000, debug=True)
