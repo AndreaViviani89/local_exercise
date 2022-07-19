@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
-import pickle
-
+from model_setup import model
 
 app = Flask(__name__)
 # model = pickle.load(open('model_state.pth'))
@@ -16,6 +15,7 @@ def predict():
     imagefile= request.files['imagefile']
     image_path= './images/' + imagefile.filename
     imagefile.save(image_path)
+
 
 
 
