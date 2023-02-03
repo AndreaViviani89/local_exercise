@@ -1,3 +1,7 @@
+'''Questo script utilizza il metodo di backtracking per risolvere il sudoku. 
+Il metodo solve cerca di riempire ogni cella vuota con un numero valido, e se non è possibile, torna indietro e prova con un altro numero. 
+La funzione is_valid controlla se un numero è valido per la posizione specifica.'''
+
 def solve(grid):
     for row in range(9):
         for col in range(9):
